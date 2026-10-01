@@ -1,0 +1,16 @@
+$ curl -s localhost:8765/health
+{"status": "ok", "parameters": 810240, "context_length": 128, "checkpoint": "minigpt.pt", "val_loss": 1.6470246934890747}
+
+$ curl -s -X POST localhost:8765/generate -H 'content-type: application/json' \
+    -d '{"prompt":"ROMEO:","max_new_tokens":120,"temperature":0.8,"top_k":40,"seed":1}'
+generated:
+ROMEO:
+And, if you the chall of his to perprison'd:
+To restand this fail betweet my lord.
+
+LEONTES:
+You suls her! Who, the bro
+{"model_parameters": 810240, "context_length": 128, "temperature": 0.8, "latency_ms": 917.9079532623291}
+
+$ curl ... -d '{"max_new_tokens":5000}'    # above the 1000-token limit
+HTTP status: 422

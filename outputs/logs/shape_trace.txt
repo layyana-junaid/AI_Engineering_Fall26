@@ -1,0 +1,16 @@
+MultiHeadAttention(d_model=128, n_heads=4) -> d_k = d_model / n_heads = 32
+batch B=2, sequence T=16
+------------------------------------------------------------------
+input x                            (2, 16, 128)          
+Q = x W_q                          (2, 16, 128)          
+Q split into heads                 (2, 4, 16, 32)        
+K split into heads                 (2, 4, 16, 32)        
+V split into heads                 (2, 4, 16, 32)        
+attention weights (per head)       (2, 4, 16, 16)        
+per-head output = weights @ V      (2, 4, 16, 32)        
+heads concatenated                 (2, 16, 128)          
+output projection W_o              (2, 16, 128)          
+------------------------------------------------------------------
+split : (B,T,D) -> view (B,T,H,d_k) -> transpose -> (B,H,T,d_k)
+merge : (B,H,T,d_k) -> transpose -> (B,T,H,d_k) -> view (B,T,D)   [= concatenation]
+check : merge(split(x)) == x  ->  True

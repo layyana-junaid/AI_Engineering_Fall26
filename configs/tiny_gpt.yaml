@@ -1,0 +1,39 @@
+# MiniGPT baseline configuration (handout section 11). Every value is configurable;
+# override any of them from the CLI:  --set model.n_layers=6 --set train.lr=3e-4
+data:
+  path: data/input.txt        # Tiny Shakespeare (~1.1 MB, 40k lines)
+  val_fraction: 0.1           # last 10% of the text is held out (contiguous split)
+
+model:
+  # vocab_size is NOT set here: it is determined by the tokenizer at train time.
+  context_length: 128
+  d_model: 128
+  n_heads: 4
+  n_layers: 4
+  ffn_dim: 512                # 4 x d_model
+  dropout: 0.1
+  pos_encoding: sinusoidal    # sinusoidal | learned
+  tie_weights: false          # share token embedding and LM head
+  causal: true                # false is ONLY for the MLM-vs-CLM leakage experiment
+
+train:
+  optimizer: adamw
+  lr: 1.0e-3                  # handout suggests ~3e-4; tiny model + short budget tolerate more
+  min_lr_ratio: 0.1           # cosine decay floor = lr * min_lr_ratio
+  weight_decay: 0.1
+  betas: [0.9, 0.95]
+  grad_clip: 1.0
+  batch_size: 64
+  max_steps: 3000
+  warmup_steps: 100
+  eval_interval: 250
+  eval_iters: 50
+  log_interval: 50
+  sample_interval: 500
+  seed: 1337
+  device: auto                # auto | cpu | cuda
+
+generate:
+  temperature: 0.8
+  top_k: 40
+  max_new_tokens: 200

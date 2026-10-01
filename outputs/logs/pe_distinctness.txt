@@ -1,0 +1,8 @@
+Same token embedding at positions 0..5 -> pairwise L2 distance after adding PE:
+[[0.   1.95 3.64 4.86 5.55 5.8 ]
+ [1.95 0.   1.95 3.64 4.86 5.55]
+ [3.64 1.95 0.   1.95 3.64 4.86]
+ [4.86 3.64 1.95 0.   1.95 3.64]
+ [5.55 4.86 3.64 1.95 0.   1.95]
+ [5.8  5.55 4.86 3.64 1.95 0.  ]]
+(identical tokens become distinguishable only because of position; distance grows with offset)

@@ -1,0 +1,12 @@
+{
+  "causal (GPT)": {
+    "train_loss_final": 2.202608108520508,
+    "val_loss_same_mask_as_training": 2.2546951293945314,
+    "val_loss_with_causal_mask (generation-like)": 2.2546951293945314
+  },
+  "bidirectional (leaky)": {
+    "train_loss_final": 0.6741591095924377,
+    "val_loss_same_mask_as_training": 0.678160211443901,
+    "val_loss_with_causal_mask (generation-like)": 5.692345309257507
+  }
+}

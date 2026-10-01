@@ -1,0 +1,35 @@
+MiniGPT summary  [trained checkpoint minigpt.pt (val loss 1.6470)]
+==============================================================
+configuration:
+  vocab_size       66
+  context_length   128
+  d_model          128
+  n_heads          4
+  n_layers         4
+  ffn_dim          512
+  dropout          0.1
+  pos_encoding     sinusoidal
+  tie_weights      False
+  causal           True
+--------------------------------------------------------------
+component                         shape / detail       params
+--------------------------------------------------------------
+token embedding                   (66, 128)             8,448
+positional encoding (sinusoidal)  fixed buffer              0
+block 0: attention (Wq,Wk,Wv,Wo)  4 heads x 32         66,048
+block 0: FFN (GELU)               128->512->128       131,712
+block 0: 2 x LayerNorm                                    512
+block 1: attention (Wq,Wk,Wv,Wo)  4 heads x 32         66,048
+block 1: FFN (GELU)               128->512->128       131,712
+block 1: 2 x LayerNorm                                    512
+block 2: attention (Wq,Wk,Wv,Wo)  4 heads x 32         66,048
+block 2: FFN (GELU)               128->512->128       131,712
+block 2: 2 x LayerNorm                                    512
+block 3: attention (Wq,Wk,Wv,Wo)  4 heads x 32         66,048
+block 3: FFN (GELU)               128->512->128       131,712
+block 3: 2 x LayerNorm                                    512
+final LayerNorm                                           256
+LM head (untied)                  (128, 66)             8,448
+--------------------------------------------------------------
+TOTAL trainable parameters                            810,240
+  (0.810 M; sum of rows = 810,240; fp32 size = 3.1 MiB)

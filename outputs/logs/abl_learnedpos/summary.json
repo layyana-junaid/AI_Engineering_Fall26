@@ -1,0 +1,49 @@
+{
+  "run": "abl_learnedpos",
+  "device": "cpu",
+  "params": 826624,
+  "model_config": {
+    "vocab_size": 66,
+    "context_length": 128,
+    "d_model": 128,
+    "n_heads": 4,
+    "n_layers": 4,
+    "ffn_dim": 512,
+    "dropout": 0.1,
+    "pos_encoding": "learned",
+    "tie_weights": false,
+    "causal": true
+  },
+  "train_config": {
+    "optimizer": "adamw",
+    "lr": 0.001,
+    "min_lr_ratio": 0.1,
+    "weight_decay": 0.1,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "grad_clip": 1.0,
+    "batch_size": 32,
+    "max_steps": 800,
+    "warmup_steps": 40,
+    "eval_interval": 200,
+    "eval_iters": 50,
+    "log_interval": 25,
+    "sample_interval": 800,
+    "seed": 1337,
+    "device": "auto"
+  },
+  "steps": 800,
+  "wall_clock_s": 301.2280809879303,
+  "tokens_per_s": 10878.135893749215,
+  "peak_memory_mb": 1064.24609375,
+  "final_train_loss": 2.2278179502487183,
+  "final_val_loss": 2.259959969520569,
+  "final_val_ppl": 9.582705558788659,
+  "best_val_loss": 2.259959969520569,
+  "best_step": 800,
+  "train_tokens": 1003855,
+  "val_tokens": 111539,
+  "overfit_batch": false
+}

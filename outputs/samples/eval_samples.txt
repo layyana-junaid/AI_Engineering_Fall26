@@ -1,0 +1,59 @@
+checkpoint: checkpoints/minigpt.pt   params: 810,240   temperature: 0.8   top_k: 40
+full-split val loss 1.6447 (ppl 5.18, 2.373 bits/char)   train loss 1.4499
+
+##### sample 1   prompt = 'ROMEO:'
+ROMEO:
+If they world, but they to son.
+
+CAMILLO:
+As my lord, now legs in him: I fay, I see not
+Reeson of the known that will name it, day your worse,
+With is thou hast swear not intermits,
+With on the crown by on a men against of see
+And he opisale to it.
+
+
+##### sample 2   prompt = 'To be, or not to be'
+To be, or not to be thee
+With made ere him with an the could?
+
+CLIFFORD:
+Sunpar for Pardon, and desires, well:
+Where were the combled friends: therefore:
+hat, wheren fraid, are toward good him repour delier
+And all to-moore my kindless well here these feels
+At him pays
+
+##### sample 3   prompt = 'KING HENRY:\n'
+KING HENRY:
+Ah, you are by have speak come many good from thou have
+In ever him to thirs in the grief be to being
+Pempt was you bark, my countly give majesty,
+Thou hast the wat we cault with us dear our forth.
+
+ROMEO:
+Sir, forth, and good-morrow, good sorrow pro
+
+##### sample 4   prompt = 'First Citizen:\nBefore we proceed'
+First Citizen:
+Before we proceed will go unto my lastifish,
+Which gentlement for his both it the to cower:
+Of cannot man's be and moder to me thee wast.
+
+ROMEO:
+See, my lord.
+
+CAMILLO:
+Here will the gonerning known provost,
+And your both mindrel myself from fortences,
+Thou lath the
+
+##### sample 5   prompt = 'O Juliet, '
+O Juliet, poor Romeo and right
+That setlems for my life, on Henry's with thee,
+The work and ever not stand to the kingnow.
+
+JULIET:
+Why, have that as man with a world
+That us a beather so hourts to me, sent the son,
+I doo sue of Romeo, fool. We'll I have not t

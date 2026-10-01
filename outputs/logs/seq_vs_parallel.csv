@@ -1,0 +1,6 @@
+T,rnn_ms,transformer_ms,rnn_sequential_steps,transformer_sequential_matmuls,attn_scores_MB,rnn_hidden_MB
+32,10.1,7.1,32,6,0.25,0.25
+64,12.8,16.8,64,6,1.0,0.5
+128,41.0,26.4,128,6,4.0,1.0
+256,84.8,84.9,256,6,16.0,2.0
+512,317.0,347.1,512,6,64.0,4.0

@@ -1,0 +1,10 @@
+$ python -m src.generate --prompt "The future of artificial intelligence" --max-new-tokens 80
+
+Prompt: The future of artificial intelligence
+Generated: The future of artificial intelligence, whose lies
+A wight his heavy truth else of dear
+in the profest shall trance sh
+
+model parameters: 0.81M
+context length: 128
+temperature: 0.8

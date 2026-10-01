@@ -1,0 +1,49 @@
+{
+  "run": "overfit",
+  "device": "cpu",
+  "params": 810240,
+  "model_config": {
+    "vocab_size": 66,
+    "context_length": 128,
+    "d_model": 128,
+    "n_heads": 4,
+    "n_layers": 4,
+    "ffn_dim": 512,
+    "dropout": 0.0,
+    "pos_encoding": "sinusoidal",
+    "tie_weights": false,
+    "causal": true
+  },
+  "train_config": {
+    "optimizer": "adamw",
+    "lr": 0.001,
+    "min_lr_ratio": 0.1,
+    "weight_decay": 0.1,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "grad_clip": 1.0,
+    "batch_size": 16,
+    "max_steps": 300,
+    "warmup_steps": 100,
+    "eval_interval": 50,
+    "eval_iters": 50,
+    "log_interval": 25,
+    "sample_interval": 300,
+    "seed": 1337,
+    "device": "auto"
+  },
+  "steps": 300,
+  "wall_clock_s": 36.66823363304138,
+  "tokens_per_s": 16755.647576281674,
+  "peak_memory_mb": 811.33203125,
+  "final_train_loss": 0.06902386993169785,
+  "final_val_loss": 0.06902386993169785,
+  "final_val_ppl": 1.0714617845627177,
+  "best_val_loss": 0.06902386993169785,
+  "best_step": 300,
+  "train_tokens": 1003855,
+  "val_tokens": 111539,
+  "overfit_batch": true
+}

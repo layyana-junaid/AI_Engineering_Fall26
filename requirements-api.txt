@@ -1,0 +1,7 @@
+# Minimal CPU-only dependencies for the deployed inference service (Render / Docker).
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+numpy
+pyyaml
+fastapi
+uvicorn

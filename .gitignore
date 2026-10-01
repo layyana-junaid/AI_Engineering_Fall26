@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.env
+*.env
+.ipynb_checkpoints/
+# datasets are downloaded by `python -m src.dataset --download`
+data/*
+!data/README.md
+!data/.gitkeep
+# checkpoints are large/generated; only the final small release checkpoint is tracked
+checkpoints/*
+!checkpoints/.gitkeep
+!checkpoints/minigpt.pt
+outputs/logs/*_stdout.txt
