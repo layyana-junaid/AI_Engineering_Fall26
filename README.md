@@ -14,7 +14,7 @@ No pretrained checkpoint is loaded, and no high-level architecture class is used
 | GitHub repository | https://github.com/layyana-junaid/AI_Engineering_Fall26 |
 | Colab notebook (executed, with outputs) | https://colab.research.google.com/drive/1YSdpHDZLwyR2QuKKbqh95UPniUau5Mui?usp=sharing (repository copy: [`notebooks/colab_minigpt.ipynb`](notebooks/colab_minigpt.ipynb)) |
 | Technical report | [`report/report.pdf`](report/report.pdf); Medium: `<YOUR_MEDIUM_URL>` |
-| Demo video | `<YOUR_VIDEO_URL>` |
+| Demo video | https://canva.link/cfyxr0j21he6h7v |
 
 ---
 
@@ -166,6 +166,16 @@ A 3-token example with d_k = d_v = 2, worked step by step: `QKᵀ`, scaling by �
 ![Figure 1: hand-calculated scaled dot-product attention](outputs/figures/fig1_hand_calculation.png)
 
 Full worked numbers: [`outputs/logs/hand_calculation.txt`](outputs/logs/hand_calculation.txt). With the causal mask, row 1 becomes `[1, 0, 0]`, so token 1 simply copies its own value vector. Token 2 mixes tokens 1–2 with weights `[0.330, 0.670]`. Token 3 is unchanged because it could already see every position.
+
+**Handwritten working.** The same calculation done by hand, step by step, from X and the weights to the masked output (`outputs/hw.jpeg`, `outputs/hw2.jpeg`, `outputs/hw3.jpeg`):
+
+| Page | Contents | File |
+|---|---|---|
+| 1 | Input X, weights, Q, K, V, and Q·Kᵀ | [`outputs/hw.jpeg`](outputs/hw.jpeg) |
+| 2 | Scaling, softmax without the mask, and the unmasked output | [`outputs/hw2.jpeg`](outputs/hw2.jpeg) |
+| 3 | Causal mask, masked softmax, and the masked output | [`outputs/hw3.jpeg`](outputs/hw3.jpeg) |
+
+The handwritten values match the script's values. Two entries differ only in the last digit because of rounding: the handwritten page adds the rounded weights for token 3 (0.2483 + 0.5035 × 3 = 1.7588), while the script uses unrounded weights and gets 1.7587. The masked output for token 2 is 1.3396 by hand (0.6698 × 2), and the saved log `outputs/logs/hand_calculation.txt` prints 1.3395.
 
 ### Figure 2: Causal mask
 
