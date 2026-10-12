@@ -10,9 +10,10 @@ No pretrained checkpoint is loaded, and no high-level architecture class is used
 
 | Links | |
 |---|---|
-| Live API (Render) | `<YOUR_RENDER_URL>` (interactive docs at `/docs`) |
-| Colab notebook | [`notebooks/colab_minigpt.ipynb`](notebooks/colab_minigpt.ipynb) |
-| Technical report (Medium) | `<YOUR_MEDIUM_URL>` (source: [`report/report.md`](report/report.md)) |
+| Live API (Render) | https://minigpt-3s94.onrender.com (interactive docs at [`/docs`](https://minigpt-3s94.onrender.com/docs)) |
+| GitHub repository | https://github.com/layyana-junaid/AI_Engineering_Fall26 |
+| Colab notebook (executed, with outputs) | https://colab.research.google.com/drive/1YSdpHDZLwyR2QuKKbqh95UPniUau5Mui?usp=sharing (repository copy: [`notebooks/colab_minigpt.ipynb`](notebooks/colab_minigpt.ipynb)) |
+| Technical report | [`report/report.pdf`](report/report.pdf); Medium: `<YOUR_MEDIUM_URL>` |
 | Demo video | `<YOUR_VIDEO_URL>` |
 
 ---
@@ -69,7 +70,7 @@ The model has learned the *format* of a play (speaker names in capitals, colons,
 Requires Python 3.10+.
 
 ```bash
-git clone <YOUR_REPO_URL> transformer-gpt-assignment
+git clone https://github.com/layyana-junaid/AI_Engineering_Fall26.git transformer-gpt-assignment
 cd transformer-gpt-assignment
 
 python -m venv .venv
@@ -85,7 +86,7 @@ python -m src.generate --prompt "ROMEO:" --max-new-tokens 200 --temperature 0.8
 
 The trained weights (`checkpoints/minigpt.pt`, 3 MB) are committed, so you don't need to train before generating.
 
-**On Google Colab:** open [`notebooks/colab_minigpt.ipynb`](notebooks/colab_minigpt.ipynb), select *Runtime → Change runtime type → T4 GPU*, set `REPO_URL` in the first cell, and run all cells. The full pipeline takes a few minutes on a T4.
+**On Google Colab:** open the [shared notebook](https://colab.research.google.com/drive/1YSdpHDZLwyR2QuKKbqh95UPniUau5Mui?usp=sharing), which already contains the outputs of a full run. To run it again yourself, open [`notebooks/colab_minigpt.ipynb`](notebooks/colab_minigpt.ipynb) in Colab, select *Runtime → Change runtime type → T4 GPU*, and run all cells. The first cell clones this repository, so it must be public. The full pipeline takes a few minutes on a T4, and the ablation step takes longer.
 
 ---
 
@@ -113,7 +114,7 @@ outputs/figures/                all figures shown in this README
 outputs/logs/                   metrics (JSONL), run summaries, text evidence
 outputs/samples/                generated text from every run
 checkpoints/minigpt.pt          trained weights (3 MB)
-report/                         technical report, demo script, submission checklist
+report/                         technical report (report.pdf)
 Dockerfile, render.yaml         deployment
 ```
 
@@ -123,7 +124,7 @@ Dockerfile, render.yaml         deployment
 | the data pipeline | [`src/tokenizer.py`](src/tokenizer.py), [`src/dataset.py`](src/dataset.py), [`data/README.md`](data/README.md) |
 | the tests | [`tests/`](tests/) |
 | the experiments | [`experiments/`](experiments/) |
-| the report | [`report/report.md`](report/report.md) |
+| the report | [`report/report.pdf`](report/report.pdf) |
 
 ---
 
@@ -403,6 +404,12 @@ curl -s -X POST localhost:8000/generate -H 'content-type: application/json' \
 Requests are validated; for example, `max_new_tokens` above 1000 returns HTTP 422.
 
 ### Deployment
+
+Live service: https://minigpt-3s94.onrender.com (interactive docs at `/docs`).
+
+![Calls to the deployed API from PowerShell: /health and /generate](outputs/screenshots.jpg)
+
+The first request after a period of inactivity is slow (about 2 minutes in the screenshot), because the free Render instance has to wake up. Requests made while the instance is awake are much faster.
 
 **Render.** [`render.yaml`](render.yaml) is a Render Blueprint. Push the repository (including `checkpoints/minigpt.pt`) to GitHub, then in Render choose *New → Blueprint* and select the repo. It installs `requirements-api.txt` (CPU-only PyTorch), starts `uvicorn src.api:app --host 0.0.0.0 --port $PORT`, and uses `/health` as the health check.
 

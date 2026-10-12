@@ -15,9 +15,13 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import resource
 import time
 from pathlib import Path
+
+try:  # Unix only; on Windows peak RAM is not measured and is logged as 0
+    import resource
+except ImportError:
+    resource = None
 
 import torch
 
@@ -65,6 +69,8 @@ def estimate_loss(model, data, tc, ctx, device, seed=0) -> float:
 def peak_memory_mb(device) -> float:
     if device.type == "cuda":
         return torch.cuda.max_memory_allocated() / 2**20
+    if resource is None:
+        return 0.0
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024  # KiB -> MiB (Linux)
 
 
