@@ -13,7 +13,7 @@ No pretrained checkpoint is loaded, and no high-level architecture class is used
 | Live API (Render) | https://minigpt-3s94.onrender.com (interactive docs at [`/docs`](https://minigpt-3s94.onrender.com/docs)) |
 | GitHub repository | https://github.com/layyana-junaid/AI_Engineering_Fall26 |
 | Colab notebook (executed, with outputs) | https://colab.research.google.com/drive/1YSdpHDZLwyR2QuKKbqh95UPniUau5Mui?usp=sharing (repository copy: [`notebooks/colab_minigpt.ipynb`](notebooks/colab_minigpt.ipynb)) |
-| Technical report | [`report/report.pdf`](report/report.pdf); Medium: `<YOUR_MEDIUM_URL>` |
+| Technical report | [`report/report.pdf`](report/report.pdf); Medium: ['Medium Report](https://medium.com/@layyana.junaid/building-a-small-gpt-from-scratch-57baff2bb74e?sharedUserId=layyana.junaid) |
 | Demo video | https://canva.link/cfyxr0j21he6h7v |
 
 ---
